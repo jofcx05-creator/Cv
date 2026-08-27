@@ -9,8 +9,10 @@
     --sheet: #FFFFFF;
     --ink: #14140F;
     --muted: #57574E;
-    --rule: #14140F;
-    --hairline: #D2D2CA;
+    --rule: #0F5C52;
+    --hairline: #CFDAD6;
+    --accent: #0F5C52;
+    --accent-deep: #0A423B;
 
     --serif: "Source Serif 4", Charter, Georgia, "Times New Roman", serif;
     --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -22,8 +24,10 @@
       --sheet: #191917;
       --ink: #EDEDE6;
       --muted: #A3A399;
-      --rule: #EDEDE6;
-      --hairline: #33332E;
+      --rule: #5CC3AF;
+      --hairline: #2E3A37;
+      --accent: #5CC3AF;
+      --accent-deep: #8FD9C9;
     }
   }
 
@@ -32,8 +36,10 @@
     --sheet: #191917;
     --ink: #EDEDE6;
     --muted: #A3A399;
-    --rule: #EDEDE6;
-    --hairline: #33332E;
+    --rule: #5CC3AF;
+    --hairline: #2E3A37;
+    --accent: #5CC3AF;
+    --accent-deep: #8FD9C9;
   }
 
   * { box-sizing: border-box; }
@@ -59,7 +65,7 @@
 
   /* ---------- masthead ---------- */
 
-  header { text-align: center; padding-bottom: 16px; border-bottom: 2.5px solid var(--rule); }
+  header { text-align: center; padding-bottom: 16px; border-bottom: 2.5px solid var(--accent); }
 
   .name {
     margin: 0;
@@ -67,6 +73,7 @@
     font-weight: 700;
     font-size: clamp(30px, 6.5vw, 42px);
     line-height: 1.05;
+    color: var(--accent-deep);
     letter-spacing: .06em;
     text-transform: uppercase;
     text-wrap: balance;
@@ -81,10 +88,10 @@
     color: var(--muted);
   }
 
-  .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hairline); }
-  .contact a:hover { border-bottom-color: var(--ink); }
+  .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  .contact a:hover { color: var(--accent); }
   .contact a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .contact .sep { padding: 0 8px; color: var(--hairline); }
+  .contact .sep { padding: 0 8px; color: var(--accent); }
 
   /* ---------- sections ---------- */
 
@@ -99,8 +106,9 @@
     font-weight: 600;
     letter-spacing: .18em;
     text-transform: uppercase;
+    color: var(--accent);
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--accent);
   }
 
   p { margin: 0; }
@@ -120,7 +128,7 @@
     gap: 2px 16px;
   }
 
-  .entry-head h3 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: .005em; }
+  .entry-head h3 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: .005em; color: var(--accent-deep); }
   .entry-head h3 .org { font-weight: 400; font-style: italic; }
 
   .dates {
@@ -136,10 +144,11 @@
 
   ul { margin: 6px 0 0; padding-left: 19px; display: flex; flex-direction: column; gap: 5px; }
   li { padding-left: 3px; }
+  li::marker { color: var(--accent); }
 
   /* ---------- two-up skill columns ---------- */
 
-  .lead { font-weight: 600; }
+  .lead { font-weight: 600; color: var(--accent-deep); }
 
   .inline { font-size: 14.5px; }
   .inline .lead { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
@@ -148,18 +157,20 @@
 
   @media print {
     @page { size: A4; margin: 14mm 15mm; }
-    body { background: #FFFFFF; color: #000000; padding: 0; font-size: 10pt; line-height: 1.36; }
+    body { background: #FFFFFF; color: #14140F; padding: 0; font-size: 10pt; line-height: 1.38; }
+    .statement { max-width: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .sheet { box-shadow: none; padding: 0; max-width: none; }
     .name { font-size: 22pt; }
     .contact { font-size: 9pt; margin-top: 7pt; }
-    header { padding-bottom: 8pt; border-bottom-color: #000000; }
-    main { gap: 11pt; margin-top: 12pt; }
-    h2 { font-size: 8.5pt; border-bottom-color: #000000; padding-bottom: 3pt; }
+    header { padding-bottom: 8pt; }
+    main { gap: 12pt; margin-top: 13pt; }
+    h2 { font-size: 8.5pt; padding-bottom: 3pt; }
     .entry-head h3 { font-size: 10.5pt; }
     .dates, .sub, .inline { font-size: 9.5pt; }
-    ul { gap: 2pt; margin-top: 3pt; }
+    ul { gap: 3pt; margin-top: 4pt; }
     section, .entry { break-inside: avoid; }
-    a { color: #000000; border: 0; }
+    a { color: #14140F; border: 0; }
   }
 </style>
 
