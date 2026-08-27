@@ -1,0 +1,334 @@
+<title>Jack Barry CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ground: #EEF3F3;
+    --sheet: #FFFFFF;
+    --ink: #13232A;
+    --muted: #5C7078;
+    --hairline: #DDE6E6;
+    --accent: #0E6257;
+    --accent-soft: #E2EFEC;
+    --shadow: 0 1px 2px rgba(19, 35, 42, .06), 0 12px 34px rgba(19, 35, 42, .08);
+
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C1417;
+      --sheet: #141F23;
+      --ink: #E7EEEE;
+      --muted: #94A9AF;
+      --hairline: #26353A;
+      --accent: #58C4B0;
+      --accent-soft: #1B2E31;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 40px rgba(0, 0, 0, .35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0C1417;
+    --sheet: #141F23;
+    --ink: #E7EEEE;
+    --muted: #94A9AF;
+    --hairline: #26353A;
+    --accent: #58C4B0;
+    --accent-soft: #1B2E31;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 40px rgba(0, 0, 0, .35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: clamp(12px, 4vw, 48px) clamp(10px, 3vw, 32px);
+  }
+
+  .sheet {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--sheet);
+    box-shadow: var(--shadow);
+    padding: clamp(24px, 5vw, 56px) clamp(20px, 5vw, 56px) clamp(28px, 5vw, 52px);
+  }
+
+  /* ---------- header ---------- */
+
+  .name {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(34px, 7vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .role {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(13px, 2.4vw, 15px);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 10px 0 0;
+  }
+
+  .contact {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin: 18px 0 0;
+    padding: 18px 0 0;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  .contact a:hover { color: var(--accent); }
+  .contact a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .contact .place { color: var(--muted); border: 0; }
+
+  /* ---------- layout ---------- */
+
+  .body-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 46px);
+    margin-top: clamp(26px, 4vw, 38px);
+  }
+
+  @media (max-width: 680px) {
+    .body-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  }
+
+  .col { display: flex; flex-direction: column; gap: clamp(22px, 3vw, 30px); }
+
+  section { display: flex; flex-direction: column; gap: 10px; }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+    padding-top: 9px;
+    border-top: 2px solid var(--accent);
+  }
+
+  p { margin: 0; max-width: 66ch; }
+
+  /* ---------- experience entries ---------- */
+
+  .entry { display: flex; flex-direction: column; gap: 6px; }
+
+  .entry + .entry { padding-top: 16px; border-top: 1px solid var(--hairline); }
+
+  .entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 16px;
+  }
+
+  .job {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0;
+    letter-spacing: -.01em;
+  }
+
+  .dates {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .where { color: var(--muted); font-size: 14.5px; }
+
+  ul.points { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+  ul.points li { padding-left: 2px; }
+  ul.points li::marker { color: var(--accent); }
+
+  /* ---------- sidebar ---------- */
+
+  .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; }
+
+  .tags li {
+    font-family: var(--display);
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    padding: 5px 10px;
+    background: var(--accent-soft);
+    color: var(--ink);
+  }
+
+  .stack { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .stack li { padding-left: 15px; position: relative; font-size: 14.5px; }
+  .stack li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+  }
+
+  .note { font-size: 14px; color: var(--muted); }
+
+  footer {
+    margin-top: clamp(26px, 4vw, 36px);
+    padding-top: 14px;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--display);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--muted);
+  }
+
+  /* ---------- print ---------- */
+
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    body { background: #FFFFFF; padding: 0; font-size: 10.5pt; }
+    .sheet { box-shadow: none; padding: 0; max-width: none; }
+    .name { font-size: 30pt; }
+    section, .entry { break-inside: avoid; }
+    a { color: inherit; }
+  }
+</style>
+
+<div class="sheet">
+  <header>
+    <h1 class="name">Jack Barry</h1>
+    <p class="role">Breakfast &amp; After School Club Shift Leader</p>
+    <ul class="contact">
+      <li><a href="tel:+447432039346">+44 7432 039346</a></li>
+      <li><a href="mailto:jofcx05@gmail.com">jofcx05@gmail.com</a></li>
+      <li class="place">Bath, UK</li>
+    </ul>
+  </header>
+
+  <div class="body-grid">
+    <div class="col">
+      <section>
+        <h2>About me</h2>
+        <p>I'm 17, I live in Bath, and I've spent the last year working as a general labourer — early starts, long days, and a team that has to look out for each other to get anything done safely. It taught me to turn up on time, take responsibility without being chased, and keep my head when things get busy.</p>
+        <p>What I really want to do is work with children. I'm applying for the Shift Leader role at Super Pirates because it's the kind of work I'd put proper energy into: running breakfast and after school clubs, planning games that kids actually want to play, and making sure every one of them is safe, included and having a good time. I know I'd be starting out in the sector, so I'm ready to learn fast, take direction from experienced staff, and work towards a childcare qualification.</p>
+      </section>
+
+      <section>
+        <h2>Work experience</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="job">General Labourer</h3>
+            <span class="dates">2024 &ndash; 2025</span>
+          </div>
+          <p class="where">Construction sites, Bath &amp; surrounding area &middot; 1 year</p>
+          <ul class="points">
+            <li>Turned up on site for early starts every shift with a full attendance record — my team could rely on me being there and ready.</li>
+            <li>Worked as part of a small crew, taking instruction from the site foreman and passing it on clearly when I was asked to get a job moving.</li>
+            <li>Followed site health and safety rules daily: PPE, keeping walkways and work areas clear, spotting hazards and reporting them before they became a problem.</li>
+            <li>Kept going through physically demanding work in all weather, and stayed focused on doing the job properly rather than quickly.</li>
+            <li>Dealt with different trades and members of the public on site, staying polite and level-headed under pressure.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="job">GCSEs</h3>
+            <span class="dates">Completed 2025</span>
+          </div>
+          <p class="where">Secondary school, Bath</p>
+          <p class="note">Full subjects and grades available on request.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Why I'd be a good Shift Leader</h2>
+        <ul class="stack">
+          <li>I'm patient and I'm good with younger kids — I know how to get them involved rather than telling them what to do.</li>
+          <li>Leading a shift means being the person who notices things: who's been left out, who's upset, what needs setting up next. That comes naturally to me.</li>
+          <li>I've already worked in an environment where safety is everyone's job, so risk assessments, headcounts and safeguarding procedures make sense to me.</li>
+          <li>I'm reliable with a rota. If I've said I'm working a shift, I'll be there and I'll be on time.</li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="col">
+      <section>
+        <h2>Skills</h2>
+        <ul class="tags">
+          <li>Leading a small team</li>
+          <li>Reliability &amp; punctuality</li>
+          <li>Health &amp; safety awareness</li>
+          <li>Clear communication</li>
+          <li>Staying calm under pressure</li>
+          <li>Problem solving</li>
+          <li>Setting up &amp; packing down</li>
+          <li>Working with all ages</li>
+          <li>Taking direction</li>
+          <li>Energy &amp; enthusiasm</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Availability</h2>
+        <ul class="stack">
+          <li>Available for breakfast club and after school club shifts, 2&ndash;3 or more per week.</li>
+          <li>Happy to travel to any of the Super Pirates sites across Bath.</li>
+          <li>Available to start immediately.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Checks &amp; training</h2>
+        <ul class="stack">
+          <li>Happy to complete an enhanced DBS check.</li>
+          <li>Keen to complete paediatric first aid and safeguarding training.</li>
+          <li>Interested in working towards a Level 2 or 3 childcare qualification.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Interests</h2>
+        <p class="note">Sport, being outdoors and anything hands-on — the sort of games and activities I'd enjoy running for a club full of 3 to 11 year olds.</p>
+      </section>
+
+      <section>
+        <h2>References</h2>
+        <p class="note">References available on request, including from my previous site supervisor.</p>
+      </section>
+    </aside>
+  </div>
+
+  <footer>Jack Barry &middot; +44 7432 039346 &middot; jofcx05@gmail.com &middot; Bath</footer>
+</div>
